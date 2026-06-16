@@ -23,7 +23,7 @@ The procedural image has a realistic mix of DC, low/mid AC, sharp edges, and hig
 | Source | UEG | ECB | Huffman | HuffmanPos | Best |
 |---|---|---|---|---|---|
 | Uniform [0,8) | 3.38% | 3.16% | 1.86% | **1.68%** | HuffmanPos |
-| Biased [0,8) P(0)=0.7 | 3.01% | **2.78%** | 6.78% | 2.59% | ECB (HuffmanPos +0.19pp) |
+| Biased [0,8) P(0)=0.7 | 3.01% | **2.78%** | 6.78% | 2.59% | HuffmanPos (2.59%); ECB best aligned (2.78%) |
 | Geometric [0,8) p=0.6 | 2.22% | **2.15%** | 2.20% | 2.17% | ECB (4-way tie) |
 | Laplacian (b=2) | **1.91%** | 3.03% | 2.85% | 2.39% | UEG |
 | Laplacian (b=8) | 6.21% | 6.72% | 2.34% | **2.11%** | HuffmanPos |
@@ -50,7 +50,7 @@ ECB at Q=32 lands slightly below the empirical `H(X)` (−0.69% overhead); Huffm
 
 UEG occupies a middle band (3–5% overhead) across the full sweep. It is designed for residuals; it never excels, never fails badly, and is the most predictable across operating points.
 
-**Phase 3 - Q-sweep on the full 24-image Kodak suite shifts the crossover and shrinks absolute overheads. HuffmanPos and ECB are statistically indistinguishable from each other and dominate on natural images.**
+**Phase 3 - Q-sweep on the full 24-image Kodak suite shifts the crossover and shrinks absolute overheads. HuffmanPos and ECB track each other within per-image variance and dominate on natural images.**
 
 | Q | alphabet | source H | UEG | ECB | Huffman | HuffmanPos |
 |---|---|---|---|---|---|---|
