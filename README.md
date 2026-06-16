@@ -143,6 +143,7 @@ ECB pays for its rate efficiency on the decode side. At procedural Q=2 (m=571), 
 ## References
 
 ITU-T (2003). *H.264: Advanced Video Coding for Generic Audiovisual Services* - Section 9. <https://www.itu.int/rec/T-REC-H.264>
+
 Srivastava, M. (2014). *Entropy Conserving Binarization Scheme for Video and Image Compression*. arXiv preprint. <https://arxiv.org/abs/1408.3083>
 
 ## License
