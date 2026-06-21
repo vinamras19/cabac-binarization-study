@@ -138,7 +138,7 @@ The mechanism: Huffman's 1-bit codeword floor pins the rate above source entropy
 
 Overheads on Kodak are smaller and often negative. Natural images carry within-block and between-block correlation that the M-coder's adaptive contexts capture; the marginal-entropy reference `H(X)` systematically undershoots the achievable rate, so HuffmanPos and ECB at Kodak Q=32 code 8-9% below `H(X)` (vs 0.7-0.8% below on the procedural image). UEG occupies a stable middle band in both regimes - never excelling, never failing catastrophically.
 
-ECB pays for its rate efficiency on the decode side. At procedural Q=2 (m=571), decode takes 24.5ms vs 3.2ms for UEG - ~7.6× slower. On Kodak Q=2 (m=834, ~6× more coefficients per trial) the ratio amplifies to ~10.1×. HuffmanPos decode is 10-15% slower than Huffman across all sources (position-indexed context array overhead). Full analysis in [`benchmark/benchmark-report.md`](benchmark/benchmark-report.md).
+ECB pays for its rate efficiency on the decode side. At procedural Q=2 (m=571), decode takes 24.5ms vs 3.2ms for UEG - ~7.6× slower. On Kodak Q=2 (m=834, ~6× more coefficients per trial) the ratio amplifies to ~10.1×. HuffmanPos decode runs 6-28% slower than Huffman depending on the source (position-indexed context array overhead). Full analysis in [`benchmark/benchmark-report.md`](benchmark/benchmark-report.md).
 
 ## References
 
