@@ -2,10 +2,6 @@
 
 Implementation of Context-Adaptive Binary Arithmetic Coding (CABAC) - the entropy coder of H.264/AVC, and the basis for the entropy coders of HEVC and VVC - with four pluggable binarization schemes feeding a shared M-coder. Tests the entropy-conserving binarization scheme from [arXiv:1408.3083](https://arxiv.org/abs/1408.3083) in a full CABAC pipeline against the H.264 standard (UEG: Truncated Unary + k-th order Exp-Golomb), canonical Huffman with a single shared M-coder context (Huffman), and canonical Huffman with one context per bin position (HuffmanPos), on synthetic distributions, a procedurally generated test image, and the full Kodak True Color Image Suite.
 
-## Background
-
-CABAC decomposes a multi-symbol value into a sequence of binary decisions (bins), each routed through an adaptive binary arithmetic coder. The choice of decomposition - the *binarization scheme* - and the *context allocation* over the resulting bin stream jointly determine how well per-bin probability models can adapt and how close the coding rate gets to the source entropy `H(X)`. Standard CABAC uses TU + EG-k; this project measures it against entropy-conserving binarization (m-ary data → m-1 binary strings, total entropy provably preserved) and canonical Huffman with two context allocation strategies (single shared context vs one context per bin position) on the same M-coder backend. The two Huffman variants share codewords but differ in context wiring.
-
 ## Project Structure
 ```text
 src/main/java/com/cabac/
@@ -81,11 +77,7 @@ python3 tools/plot_decoder_latency.py benchmark/benchmark-results.csv
 
 ### Kodak Real-Image Testing
 
-The benchmark suite includes a Q-sweep on the full 24-image Kodak True Color Image Suite to evaluate the binarization schemes on natural photographs in addition to the procedural test image.
-
-Download the suite from <http://r0k.us/graphics/kodak/> and place `kodim01.png` through `kodim24.png` in `kodak/` (relative to project root).
-
-Alternative path: override the directory with `-Dkodak.dir=/path/to/kodak`.
+The benchmark suite includes a Q-sweep on the full 24-image Kodak True Color Image Suite to evaluate the binarization schemes on natural photographs.
 
 If Kodak images are not present, the benchmark prints a `Skipping <filename>` warning and continues without them; the synthetic and procedural-DCT cells still run.
 
